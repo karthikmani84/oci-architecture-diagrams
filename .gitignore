@@ -1,0 +1,9 @@
+# Oracle toolkit files are downloaded by each user, never committed
+oci-architecture-diagrams/toolkit/*
+!oci-architecture-diagrams/toolkit/README.md
+!oci-architecture-diagrams/toolkit/.gitkeep
+
+__pycache__/
+*.pyc
+*.zip
+.DS_Store

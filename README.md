@@ -14,16 +14,25 @@ A Claude skill that draws Oracle Cloud Infrastructure architecture diagrams in O
 
 ## Setup
 
-1. **Clone or download** this repo.
+1. **Clone or download** this repo (Code → Download ZIP, then unzip it).
 2. **Add Oracle's toolkit.** Download the draw.io toolkit from [Oracle's OCI Architecture Diagram Toolkits page](https://docs.oracle.com/en-us/iaas/Content/General/Reference/graphicsfordiagrams.htm) and drop it into `oci-architecture-diagrams/toolkit/`. See [toolkit/README.md](oci-architecture-diagrams/toolkit/README.md).
-3. **Zip the skill folder**:
-   ```bash
-   cd oci-architecture-diagrams && zip -r ../oci-architecture-diagrams.zip . && cd ..
+3. **Zip only the skill folder**, the inner `oci-architecture-diagrams` folder:
    ```
-   The zip must contain `SKILL.md` at its top level or inside one folder.
+   oci-architecture-diagrams/
+   ├── SKILL.md
+   ├── scripts/ocidraw.py
+   └── toolkit/        ← Oracle's files here
+   ```
+   On a Mac, right-click it and choose Compress. Or from the repo root:
+   ```bash
+   zip -r oci-architecture-diagrams.zip oci-architecture-diagrams
+   ```
 4. **Enable code execution** in Claude (Settings → Capabilities). On Team/Enterprise plans an admin may need to allow skills.
-5. **Upload the zip** in Claude's skills settings and turn the skill on.
+5. **Upload that zip** in Claude's skills settings and turn the skill on.
 6. Start a new chat: *"Draw an OCI diagram of..."*
+
+> [!WARNING]
+> **Don't upload GitHub's Download ZIP directly.** It wraps the whole repo, so `SKILL.md` ends up two folders deep and Claude won't recognise it as a skill. It also contains no Oracle toolkit.
 
 Using Claude Code instead? Copy the `oci-architecture-diagrams` folder (with the toolkit added) into `~/.claude/skills/`.
 
